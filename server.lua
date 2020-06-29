@@ -18,7 +18,7 @@ RegisterCommand("loteria",function(source,args)
         if parseInt(args[1]) <= maxValue then 
             if banco >= parseInt(args[1]) then
                 if args[1] and parseInt(args[1]) > 0 then
-                    if (parseInt(random) > 8) then
+                    if (parseInt(random) > 1) then
                         local value = parseInt(args[1])
                         newBankMoney = parseInt(bankMoney + value)
                         vRP.setBankMoney(user_id, newBankMoney)
