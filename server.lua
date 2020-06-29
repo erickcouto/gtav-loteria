@@ -8,7 +8,10 @@ vRP = Proxy.getInterface("vRP")
 
 RegisterCommand("loteria",function(source,args)
     
+    --alterar o valor maximo da aposta
     local maxValue = 10000
+    --alterar o valor da change de perder.
+    local chanceToLose = 8
 	local source = source
 	local user_id = vRP.getUserId(source)
 	local banco = vRP.getBankMoney(user_id)
@@ -18,7 +21,7 @@ RegisterCommand("loteria",function(source,args)
         if parseInt(args[1]) <= maxValue then 
             if banco >= parseInt(args[1]) then
                 if args[1] and parseInt(args[1]) > 0 then
-                    if (parseInt(random) > 8) then
+                    if (parseInt(random) > chanceToLose) then
                         local value = parseInt(args[1])
                         newBankMoney = parseInt(bankMoney + value)
                         vRP.setBankMoney(user_id, newBankMoney)
